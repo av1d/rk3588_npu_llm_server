@@ -42,65 +42,6 @@ Syntax is: IP, port, path to model. Start it:
 Test it. Change the value of "hello, how are you " if you like then send it.  
 `curl -H "Content-Type: application/json" -d '{"PROMPT_TEXT_PREFIX":"<|im_start|>system You are a helpful assistant. <|im_end|> <|im_start|>user ","input_str":"hello, how are you ","PROMPT_TEXT_POSTFIX":"<|im_end|><|im_start|>assistant "}' http://192.168.0.196:31337/`
 
-Implement it in Python:  
-```
-import requests
-import sys
-
-IP_ADDR = '192.168.0.196'
-PORT = '31337'
-
-
-def ask_ai(user_input: str) -> dict:
-
-    headers = {
-        'Content-Type': 'application/json',
-    }
-
-    prefix = (
-        "<|im_start|>system You are a helpful assistant. <|im_end|> "
-        "<|im_start|>user "
-    )
-
-    postfix = (
-        "<|im_end|><|im_start|>assistant "
-    )
-
-    json_data = {
-        'PROMPT_TEXT_PREFIX': prefix,
-        'input_str': str(user_input) + ' ',
-        'PROMPT_TEXT_POSTFIX': postfix,
-    }
-
-    response = requests.post(
-        f"http://{IP_ADDR}:{PORT}",
-        headers=headers,
-        json=json_data
-    )
-
-    return response.json()
-
-def main():
-
-    while True:
-        user_input = input("ai> ")
-        if user_input.lower() in ['quit', 'exit']:
-            sys.exit("Goodbye!")
-        else:
-            answer = ask_ai(user_input)
-            print(answer['output'])
-
-
-if __name__ == "__main__":
-
-    print(
-        "Type anything then press enter. "
-        "Type exit or quit to do so."
-    )
-
-    main()
-```
-
 implement it in PHP:  
 ```
 <?php
