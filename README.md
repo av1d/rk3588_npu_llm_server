@@ -25,9 +25,9 @@ int main() {
 }
 ```
 
-Compile: `g++ test.cpp`
-Run test: `./a.out`
-Result should give you something like "`Using Boost 1.74.0`"  
+Compile: `g++ test.cpp`  
+Run test: `./a.out`  
+Result should give you something like "`Using Boost 1.74.0`"    
 If not, RTFM: https://www.boost.org/doc/libs/1_74_0/  
 
 Compile server.cpp. Change the path to rkllmrt if needed.  
