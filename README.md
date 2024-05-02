@@ -1,5 +1,8 @@
 # Server/Web API for RK3588 NPU LLM
 
+Update: there is now a web UI available: https://github.com/av1d/NPU-Chat/  
+
+
 The goal is to make LLMs running on the NPU practical and usable as I'm not a fan of the CLI interactions due to their limited usability. The server outputs a JSON response and therefore you can use cURL, AJAX, Python, or whatever you want.  
 
 Currently [only works with Qwen](https://huggingface.co/Pelochus/qwen-1_8B-rk3588).  
