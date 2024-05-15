@@ -35,14 +35,14 @@ void exitHandler(int signal) {
     }
 }
 
-void callback(const char *text, void *userdata, LLMCallState state) {
+void callback(RKLLMResult *result, void *userdata, LLMCallState state) {
     std::string* output = static_cast<std::string*>(userdata);
     if (state == LLM_RUN_FINISH) {
         printf("\n");
     } else if (state == LLM_RUN_ERROR) {
         printf("\nLLM run error\n");
     } else {
-        *output += text;
+        *output += result->text;
     }
 }
 
@@ -128,8 +128,7 @@ int main(int argc, char* argv[]) {
     std::cout << "rkllm init start" << std::endl;
 
     RKLLMParam param = rkllm_createDefaultParam();
-    param.modelPath = rkllmModelPath.c_str();
-    param.target_platform = "rk3588";
+    param.model_path = rkllmModelPath.c_str();
     param.num_npu_core = 2;
     param.top_k = 1;
     param.max_new_tokens = 256;
