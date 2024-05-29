@@ -34,6 +34,7 @@ Result should give you something like "`Using Boost 1.74.0`"
 If not, RTFM: https://www.boost.org/doc/libs/1_74_0/  
 
 Compile server.cpp. Change the path to rkllmrt if needed.  
+Note: use `server.cpp` for models converted with RKLLM 1.0.1 and `server_1_0.cpp` for models converted with RKLLM 1.0.  
 If you have `locate` installed, try `locate rkllmrt`.  
 The path in the following command is probably correct, though:  
 `g++ server.cpp -o server -std=c++11 -lcpprest -lcrypto -L/usr/lib -lrkllmrt`
