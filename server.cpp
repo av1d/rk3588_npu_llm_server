@@ -13,6 +13,12 @@
 #include <sstream>
 #include <csignal>
 
+#define RKLLM_VERSION "1.0.1"
+
+/* For models converted with RKLLM 1.0.1 only.
+ * Use previous version for 1.0
+ */
+
 using namespace web;
 using namespace web::http;
 using namespace web::http::experimental::listener;
@@ -125,6 +131,7 @@ int main(int argc, char* argv[]) {
     signal(SIGINT, exitHandler);
     signal(SIGTERM, exitHandler);
 
+    std::cout << "Using RKLLM version " << RKLLM_VERSION << std::endl;
     std::cout << "rkllm init start" << std::endl;
 
     RKLLMParam param = rkllm_createDefaultParam();
